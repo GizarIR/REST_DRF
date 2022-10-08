@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-# импортировано ждя работы РЕСТАПИ
+# импортировано ждя работы РЕСТАПИ (минимальные настройки)
 from rest_framework import routers
 from myapp import views
 
+# создано для работы РЕСТАПИ (минимальные настройки)
 router = routers.DefaultRouter()
 router.register(r'schools', views.SchoolViewset)
 router.register(r'classes', views.SClassViewset)
@@ -27,6 +28,6 @@ router.register(r'students', views.StudentViewest)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('', include(router.urls)), # создано для работы РЕСТАПИ (минимальные настройки)
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')), # создано для работы РЕСТАПИ (минимальные настройки)
 ]

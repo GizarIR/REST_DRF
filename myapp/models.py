@@ -1,10 +1,11 @@
 from django.db import models
 
-
+#(минимальные настройки)
 class School(models.Model):
 
    name = models.CharField(max_length=64, unique=True)
    address = models.CharField(max_length=120)
+   is_active = models.BooleanField(default=True)
 
 
 class SClass(models.Model):
