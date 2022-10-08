@@ -123,3 +123,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Добавлено для настройки rest_farmework
+REST_FRAMEWORK = {
+   'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+   'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+   'PAGE_SIZE': 5,
+    # настройка что для доступа ко всем ViewSet ам требует аутентификация
+    #     # ВАЖНО: permission_classes переопределяет стандартное значение в DEFAULT_PERMISSION_CLASSES, а значит,
+    #     # если мы хотим отменить, то достаточно переопределить как permission_classes=[permissions.AllowAny]
+    #     # или вообще permission_classes=[]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ]
+}
